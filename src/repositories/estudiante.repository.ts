@@ -1,16 +1,22 @@
-import {inject} from '@loopback/core';
-import {DefaultCrudRepository} from '@loopback/repository';
+import {inject, Getter} from '@loopback/core';
+import {DefaultCrudRepository, repository, BelongsToAccessor} from '@loopback/repository';
 import {MysqlDataSource} from '../datasources';
-import {Estudiante, EstudianteRelations} from '../models';
+import {Estudiante, EstudianteRelations, Programa} from '../models';
+import {ProgramaRepository} from './programa.repository';
 
 export class EstudianteRepository extends DefaultCrudRepository<
   Estudiante,
-  typeof Estudiante.prototype.id,
+  typeof Estudiante.prototype.codigoestudiante,
   EstudianteRelations
 > {
+
+  public readonly programa: BelongsToAccessor<Programa, typeof Estudiante.prototype.codigoestudiante>;
+
   constructor(
-    @inject('datasources.mysql') dataSource: MysqlDataSource,
+    @inject('datasources.mysql') dataSource: MysqlDataSource, @repository.getter('ProgramaRepository') protected programaRepositoryGetter: Getter<ProgramaRepository>,
   ) {
     super(Estudiante, dataSource);
+    this.programa = this.createBelongsToAccessorFor('programa', programaRepositoryGetter,);
+    this.registerInclusionResolver('programa', this.programa.inclusionResolver);
   }
 }

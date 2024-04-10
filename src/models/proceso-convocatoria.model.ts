@@ -1,7 +1,7 @@
 import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class ResultadoConvocatoria extends Entity {
+export class ProcesoConvocatoria extends Entity {
   @property({
     type: 'number',
     id: true,
@@ -9,11 +9,7 @@ export class ResultadoConvocatoria extends Entity {
   })
   id?: number;
 
-  @property({
-    type: 'number',
-    required: true,
-  })
-  convocatoriaid: number;
+
 
   @property({
     type: 'number',
@@ -26,6 +22,12 @@ export class ResultadoConvocatoria extends Entity {
     required: true,
   })
   aprobado: boolean;
+
+  @property({
+    type: 'date',
+    required: true,
+  })
+  fecha: boolean;
 
   @property({
     type: 'number',
@@ -43,13 +45,13 @@ export class ResultadoConvocatoria extends Entity {
   })
   apoyoSocioeconomicoId?: number;
 
-  constructor(data?: Partial<ResultadoConvocatoria>) {
+  constructor(data?: Partial<ProcesoConvocatoria>) {
     super(data);
   }
 }
 
-export interface ResultadoConvocatoriaRelations {
+export interface ProcesoConvocatoriaRelations {
   // describe navigational properties here
 }
 
-export type ResultadoConvocatoriaWithRelations = ResultadoConvocatoria & ResultadoConvocatoriaRelations;
+export type ProcesoConvocatoriaWithRelations = ProcesoConvocatoria & ProcesoConvocatoriaRelations;

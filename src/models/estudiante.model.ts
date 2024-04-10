@@ -1,15 +1,16 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Entity, hasMany, model, property, belongsTo} from '@loopback/repository';
 import {ApoyoSocioeconomico} from './apoyo-socioeconomico.model';
 import {EstudianteApoyo} from './estudiante-apoyo.model';
+import {Programa} from './programa.model';
 
 @model()
 export class Estudiante extends Entity {
   @property({
     type: 'number',
     id: true,
-    generated: true,
+    generated: false,
   })
-  id?: number;
+  codigoestudiante?: number;
 
   @property({
     type: 'string',
@@ -21,7 +22,7 @@ export class Estudiante extends Entity {
     type: 'string',
     required: true,
   })
-  codigo: string;
+  cedula: string;
 
   @property({
     type: 'string',
@@ -58,9 +59,17 @@ export class Estudiante extends Entity {
     required: true,
   })
   ultimosemetre: number;
+  @property({
+    type: 'string',
+    required: true,
+  })
+  autor: number;
 
   @hasMany(() => ApoyoSocioeconomico, {through: {model: () => EstudianteApoyo}})
   apoyoSocioeconomicos: ApoyoSocioeconomico[];
+
+  @belongsTo(() => Programa)
+  programaId: number;
 
   constructor(data?: Partial<Estudiante>) {
     super(data);

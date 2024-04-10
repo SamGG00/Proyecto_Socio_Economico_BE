@@ -3,3 +3,7 @@ export * from './convocatoria.repository';
 export * from './estudiante-apoyo.repository';
 export * from './estudiante.repository';
 export * from './resultado-convocatoria.repository';
+export * from './facultad.repository';
+export * from './programa.repository';
+export * from './apoyo.repository';
+export * from './organizacion.repository';

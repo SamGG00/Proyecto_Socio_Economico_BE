@@ -5,4 +5,11 @@ export * from './estudiante-apoyo-controller.controller';
 export * from './estudiante-controller.controller';
 export * from './ping.controller';
 export * from './resultado-convocatoria.controller';
-
+export * from './estudiante-programa.controller';
+export * from './programa-facultad.controller';
+export * from './apoyo-organizacion.controller';
+export * from './apoyo-socioeconomico-apoyo.controller';
+export * from './facultad-controller.controller';
+export * from './programa.controller';
+export * from './apoyoc.controller';
+export * from './organizacion.controller';

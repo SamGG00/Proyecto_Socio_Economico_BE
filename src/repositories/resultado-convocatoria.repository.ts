@@ -1,16 +1,16 @@
 import {inject} from '@loopback/core';
 import {DefaultCrudRepository} from '@loopback/repository';
 import {MysqlDataSource} from '../datasources';
-import {ResultadoConvocatoria, ResultadoConvocatoriaRelations} from '../models';
+import {ProcesoConvocatoria, ProcesoConvocatoriaRelations} from '../models';
 
-export class ResultadoConvocatoriaRepository extends DefaultCrudRepository<
-  ResultadoConvocatoria,
-  typeof ResultadoConvocatoria.prototype.id,
-  ResultadoConvocatoriaRelations
+export class ProcesoConvocatoriaRepository extends DefaultCrudRepository<
+  ProcesoConvocatoria,
+  typeof ProcesoConvocatoria.prototype.id,
+  ProcesoConvocatoriaRelations
 > {
   constructor(
     @inject('datasources.mysql') dataSource: MysqlDataSource,
   ) {
-    super(ResultadoConvocatoria, dataSource);
+    super(ProcesoConvocatoria, dataSource);
   }
 }

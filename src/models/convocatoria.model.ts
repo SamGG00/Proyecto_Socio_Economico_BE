@@ -1,6 +1,6 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Entity, hasMany, model, property} from '@loopback/repository';
 import {ApoyoSocioeconomico} from './apoyo-socioeconomico.model';
-import {ResultadoConvocatoria} from './resultado-convocatoria.model';
+import {ProcesoConvocatoria} from './proceso-convocatoria.model';
 
 @model()
 export class Convocatoria extends Entity {
@@ -11,12 +11,12 @@ export class Convocatoria extends Entity {
   })
   id?: number;
 
+
   @property({
-    type: 'string',
+    type: 'number',
     required: true,
   })
-  tipoApoyo: string;
-
+  año: number;
   @property({
     type: 'number',
     required: true,
@@ -28,8 +28,23 @@ export class Convocatoria extends Entity {
     required: true,
   })
   cantidadEstudiantesPresentados: number;
+  @property({
+    type: 'string',
+    required: true,
+  })
+  autor: string;
+  @property({
+    type: 'Date',
+    required: true,
+  })
+  inicio: Date;
+  @property({
+    type: 'Date',
+    required: true,
+  })
+  final: Date;
 
-  @hasMany(() => ApoyoSocioeconomico, {through: {model: () => ResultadoConvocatoria}})
+  @hasMany(() => ApoyoSocioeconomico, {through: {model: () => ProcesoConvocatoria}})
   apoyoSocioeconomicos: ApoyoSocioeconomico[];
 
   constructor(data?: Partial<Convocatoria>) {
