@@ -7,3 +7,5 @@ export * from './facultad.repository';
 export * from './programa.repository';
 export * from './apoyo.repository';
 export * from './organizacion.repository';
+export * from './municipio.repository';
+export * from './contacto.repository';

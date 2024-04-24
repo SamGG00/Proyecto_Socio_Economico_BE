@@ -1,8 +1,8 @@
 import {inject, Getter} from '@loopback/core';
 import {DefaultCrudRepository, repository, BelongsToAccessor} from '@loopback/repository';
 import {MysqlDataSource} from '../datasources';
-import {Estudiante, EstudianteRelations, Programa} from '../models';
-import {ProgramaRepository} from './programa.repository';
+import {Estudiante, EstudianteRelations, Municipio} from '../models';
+import {MunicipioRepository} from './municipio.repository';
 
 export class EstudianteRepository extends DefaultCrudRepository<
   Estudiante,
@@ -10,13 +10,17 @@ export class EstudianteRepository extends DefaultCrudRepository<
   EstudianteRelations
 > {
 
-  public readonly programa: BelongsToAccessor<Programa, typeof Estudiante.prototype.codigoestudiante>;
+  public readonly municipionacimiento: BelongsToAccessor<Municipio, typeof Estudiante.prototype.codigoestudiante>;
+
+  public readonly municipiovivienda: BelongsToAccessor<Municipio, typeof Estudiante.prototype.codigoestudiante>;
 
   constructor(
-    @inject('datasources.mysql') dataSource: MysqlDataSource, @repository.getter('ProgramaRepository') protected programaRepositoryGetter: Getter<ProgramaRepository>,
+    @inject('datasources.mysql') dataSource: MysqlDataSource, @repository.getter('MunicipioRepository') protected municipioRepositoryGetter: Getter<MunicipioRepository>,
   ) {
     super(Estudiante, dataSource);
-    this.programa = this.createBelongsToAccessorFor('programa', programaRepositoryGetter,);
-    this.registerInclusionResolver('programa', this.programa.inclusionResolver);
+    this.municipiovivienda = this.createBelongsToAccessorFor('municipiovivienda', municipioRepositoryGetter,);
+    this.registerInclusionResolver('municipiovivienda', this.municipiovivienda.inclusionResolver);
+    this.municipionacimiento = this.createBelongsToAccessorFor('municipionacimiento', municipioRepositoryGetter,);
+    this.registerInclusionResolver('municipionacimiento', this.municipionacimiento.inclusionResolver);
   }
 }

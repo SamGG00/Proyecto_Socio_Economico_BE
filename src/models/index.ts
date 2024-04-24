@@ -9,3 +9,5 @@ export * from './programa.model';
 
 export * from './apoyo.model';
 export * from './organizacion.model';
+export * from './municipio.model';
+export * from './contacto.model';

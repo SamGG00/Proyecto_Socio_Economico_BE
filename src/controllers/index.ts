@@ -13,3 +13,5 @@ export * from './facultad-controller.controller';
 export * from './programa.controller';
 export * from './apoyoc.controller';
 export * from './organizacion.controller';
+export * from './estudiante-municipio.controller';
+export * from './estudiante.controller';

@@ -1,16 +1,15 @@
-import {Entity, hasMany, model, property, belongsTo} from '@loopback/repository';
-import {ApoyoSocioeconomico} from './apoyo-socioeconomico.model';
-import {EstudianteApoyo} from './estudiante-apoyo.model';
-import {Programa} from './programa.model';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {Municipio} from './municipio.model';
 
 @model()
 export class Estudiante extends Entity {
   @property({
-    type: 'number',
+    type: 'string',
     id: true,
     generated: false,
+    required: true,
   })
-  codigoestudiante?: number;
+  codigoestudiante: string;
 
   @property({
     type: 'string',
@@ -22,13 +21,19 @@ export class Estudiante extends Entity {
     type: 'string',
     required: true,
   })
-  cedula: string;
+  genero: string;
+
+  @property({
+    type: 'number',
+    required: true,
+  })
+  edad: number;
 
   @property({
     type: 'string',
     required: true,
   })
-  carrera: string;
+  numeroidentificacion: string;
 
   @property({
     type: 'number',
@@ -37,10 +42,28 @@ export class Estudiante extends Entity {
   pbm: number;
 
   @property({
+    type: 'string',
+    required: true,
+  })
+  correo: string;
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  celular: string;
+
+  @property({
     type: 'number',
     required: true,
   })
-  promedionotas: number;
+  estrato: number;
+
+  @property({
+    type: 'number',
+    required: true,
+  })
+  promedionotasactual: number;
 
   @property({
     type: 'number',
@@ -58,18 +81,31 @@ export class Estudiante extends Entity {
     type: 'number',
     required: true,
   })
-  ultimosemetre: number;
+  ultimosemestrecursado: number;
+
+  @property({
+    type: 'boolean',
+    required: true,
+  })
+  hijos: boolean;
+
+  @property({
+    type: 'boolean',
+    required: true,
+  })
+  sancionesdisciplinarias: boolean;
+
   @property({
     type: 'string',
     required: true,
   })
-  autor: number;
+  autor: string;
 
-  @hasMany(() => ApoyoSocioeconomico, {through: {model: () => EstudianteApoyo}})
-  apoyoSocioeconomicos: ApoyoSocioeconomico[];
+  @belongsTo(() => Municipio, {name: 'municipionacimiento'})
+  idmunicipionacimiento: number;
 
-  @belongsTo(() => Programa)
-  programaId: number;
+  @belongsTo(() => Municipio, {name: 'municipiovivienda'})
+  idmunicipiovivienda: number;
 
   constructor(data?: Partial<Estudiante>) {
     super(data);
