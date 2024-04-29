@@ -15,3 +15,6 @@ export * from './apoyoc.controller';
 export * from './organizacion.controller';
 export * from './estudiante-municipio.controller';
 export * from './estudiante.controller';
+export * from './estudiante-contacto.controller';
+export * from './proceso-convocatoria-estudiante.controller';
+export * from './proceso-convocatoria-convocatoria.controller';

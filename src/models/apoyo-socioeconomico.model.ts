@@ -1,4 +1,4 @@
-import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {Entity, belongsTo, model, property} from '@loopback/repository';
 import {Apoyo} from './apoyo.model';
 
 @model()
@@ -40,6 +40,11 @@ export class ApoyoSocioeconomico extends Entity {
     required: true,
   })
   apoyo: string;
+  @property({
+    type: 'string',
+    required: true,
+  })
+  autor: string;
 
   @belongsTo(() => Apoyo)
   apoyoId: number;

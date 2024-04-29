@@ -9,3 +9,4 @@ export * from './apoyo.repository';
 export * from './organizacion.repository';
 export * from './municipio.repository';
 export * from './contacto.repository';
+export * from './proceso-convocatoria.repository';

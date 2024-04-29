@@ -15,6 +15,17 @@ export class Programa extends Entity {
     required: true,
   })
   nombre: string;
+  @property({
+    type: 'string',
+    required: true,
+  })
+  codigoSnies: string;
+
+  @property({
+    type: 'number',
+    required: true,
+  })
+  duracion: number;
 
 
   @belongsTo(() => Facultad)

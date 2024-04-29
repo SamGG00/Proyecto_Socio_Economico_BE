@@ -1,6 +1,5 @@
-import {Entity, hasMany, model, property} from '@loopback/repository';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
 import {ApoyoSocioeconomico} from './apoyo-socioeconomico.model';
-import {ProcesoConvocatoria} from './proceso-convocatoria.model';
 
 @model()
 export class Convocatoria extends Entity {
@@ -44,8 +43,8 @@ export class Convocatoria extends Entity {
   })
   final: Date;
 
-  @hasMany(() => ApoyoSocioeconomico, {through: {model: () => ProcesoConvocatoria}})
-  apoyoSocioeconomicos: ApoyoSocioeconomico[];
+  @belongsTo(() => ApoyoSocioeconomico)
+  apoyoSocioeconomicoId: number;
 
   constructor(data?: Partial<Convocatoria>) {
     super(data);
