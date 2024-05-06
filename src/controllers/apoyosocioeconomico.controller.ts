@@ -20,13 +20,13 @@ import {
 import {ApoyoSocioeconomico} from '../models';
 import {ApoyoSocioeconomicoRepository} from '../repositories';
 
-export class ApoyoSocioeconomicoController {
+export class ApoyosocioeconomicoController {
   constructor(
     @repository(ApoyoSocioeconomicoRepository)
     public apoyoSocioeconomicoRepository : ApoyoSocioeconomicoRepository,
   ) {}
 
-  @post('/apoyo-socioeconomicos')
+  @post('/apoyos-socioeconomicos')
   @response(200, {
     description: 'ApoyoSocioeconomico model instance',
     content: {'application/json': {schema: getModelSchemaRef(ApoyoSocioeconomico)}},
@@ -47,7 +47,7 @@ export class ApoyoSocioeconomicoController {
     return this.apoyoSocioeconomicoRepository.create(apoyoSocioeconomico);
   }
 
-  @get('/apoyo-socioeconomicos/count')
+  @get('/apoyos-socioeconomicos/count')
   @response(200, {
     description: 'ApoyoSocioeconomico model count',
     content: {'application/json': {schema: CountSchema}},
@@ -58,7 +58,7 @@ export class ApoyoSocioeconomicoController {
     return this.apoyoSocioeconomicoRepository.count(where);
   }
 
-  @get('/apoyo-socioeconomicos')
+  @get('/apoyos-socioeconomicos')
   @response(200, {
     description: 'Array of ApoyoSocioeconomico model instances',
     content: {
@@ -76,7 +76,7 @@ export class ApoyoSocioeconomicoController {
     return this.apoyoSocioeconomicoRepository.find(filter);
   }
 
-  @patch('/apoyo-socioeconomicos')
+  @patch('/apoyos-socioeconomicos')
   @response(200, {
     description: 'ApoyoSocioeconomico PATCH success count',
     content: {'application/json': {schema: CountSchema}},
@@ -95,7 +95,7 @@ export class ApoyoSocioeconomicoController {
     return this.apoyoSocioeconomicoRepository.updateAll(apoyoSocioeconomico, where);
   }
 
-  @get('/apoyo-socioeconomicos/{id}')
+  @get('/apoyos-socioeconomicos/{id}')
   @response(200, {
     description: 'ApoyoSocioeconomico model instance',
     content: {
@@ -111,7 +111,7 @@ export class ApoyoSocioeconomicoController {
     return this.apoyoSocioeconomicoRepository.findById(id, filter);
   }
 
-  @patch('/apoyo-socioeconomicos/{id}')
+  @patch('/apoyos-socioeconomicos/{id}')
   @response(204, {
     description: 'ApoyoSocioeconomico PATCH success',
   })
@@ -129,7 +129,7 @@ export class ApoyoSocioeconomicoController {
     await this.apoyoSocioeconomicoRepository.updateById(id, apoyoSocioeconomico);
   }
 
-  @put('/apoyo-socioeconomicos/{id}')
+  @put('/apoyos-socioeconomicos/{id}')
   @response(204, {
     description: 'ApoyoSocioeconomico PUT success',
   })
@@ -140,7 +140,7 @@ export class ApoyoSocioeconomicoController {
     await this.apoyoSocioeconomicoRepository.replaceById(id, apoyoSocioeconomico);
   }
 
-  @del('/apoyo-socioeconomicos/{id}')
+  @del('/apoyos-socioeconomicos/{id}')
   @response(204, {
     description: 'ApoyoSocioeconomico DELETE success',
   })

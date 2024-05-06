@@ -20,7 +20,7 @@ import {
 import {Convocatoria} from '../models';
 import {ConvocatoriaRepository} from '../repositories';
 
-export class ConvocatoriaController {
+export class ConvocatioriaController {
   constructor(
     @repository(ConvocatoriaRepository)
     public convocatoriaRepository : ConvocatoriaRepository,

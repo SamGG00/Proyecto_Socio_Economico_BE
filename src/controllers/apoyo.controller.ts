@@ -20,7 +20,7 @@ import {
 import {Apoyo} from '../models';
 import {ApoyoRepository} from '../repositories';
 
-export class ApoyocController {
+export class ApoyoController {
   constructor(
     @repository(ApoyoRepository)
     public apoyoRepository : ApoyoRepository,

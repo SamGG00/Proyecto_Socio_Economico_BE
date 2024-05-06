@@ -37,12 +37,12 @@ export class EstudianteController {
         'application/json': {
           schema: getModelSchemaRef(Estudiante, {
             title: 'NewEstudiante',
-            exclude: ['id'],
+            
           }),
         },
       },
     })
-    estudiante: Omit<Estudiante, 'id'>,
+    estudiante: Estudiante,
   ): Promise<Estudiante> {
     return this.estudianteRepository.create(estudiante);
   }
@@ -105,7 +105,7 @@ export class EstudianteController {
     },
   })
   async findById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @param.filter(Estudiante, {exclude: 'where'}) filter?: FilterExcludingWhere<Estudiante>
   ): Promise<Estudiante> {
     return this.estudianteRepository.findById(id, filter);
@@ -116,7 +116,7 @@ export class EstudianteController {
     description: 'Estudiante PATCH success',
   })
   async updateById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody({
       content: {
         'application/json': {
@@ -134,7 +134,7 @@ export class EstudianteController {
     description: 'Estudiante PUT success',
   })
   async replaceById(
-    @param.path.number('id') id: number,
+    @param.path.string('id') id: string,
     @requestBody() estudiante: Estudiante,
   ): Promise<void> {
     await this.estudianteRepository.replaceById(id, estudiante);
@@ -144,7 +144,7 @@ export class EstudianteController {
   @response(204, {
     description: 'Estudiante DELETE success',
   })
-  async deleteById(@param.path.number('id') id: number): Promise<void> {
+  async deleteById(@param.path.string('id') id: string): Promise<void> {
     await this.estudianteRepository.deleteById(id);
   }
 }
