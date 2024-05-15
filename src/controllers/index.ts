@@ -10,4 +10,4 @@ export * from './contacto.controller';
 export * from './apoyo.controller';
 export * from './apoyosocioeconomico.controller';
 export * from './procesoconvocatoria.controller';
-export * from './convocatoria-apoyo.controller';
+export * from './convocatoria.controller';
