@@ -1,4 +1,3 @@
-export * from './convocatioria.controller';
 export * from './estudiante.controller';
 export * from './ping.controller';
 export * from './facultad.controller';
@@ -10,5 +9,5 @@ export * from './municipio.controller';
 export * from './contacto.controller';
 export * from './apoyo.controller';
 export * from './apoyosocioeconomico.controller';
-export * from './convocatioria.controller';
 export * from './procesoconvocatoria.controller';
+export * from './convocatoria-apoyo.controller';

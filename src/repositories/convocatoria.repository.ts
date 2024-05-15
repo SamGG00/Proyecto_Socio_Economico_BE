@@ -1,9 +1,8 @@
 import {inject, Getter} from '@loopback/core';
-import {DefaultCrudRepository, repository, HasManyThroughRepositoryFactory, BelongsToAccessor} from '@loopback/repository';
+import {DefaultCrudRepository, repository, BelongsToAccessor} from '@loopback/repository';
 import {MysqlDataSource} from '../datasources';
-import {Convocatoria, ConvocatoriaRelations, ApoyoSocioeconomico, ResultadoConvocatoria} from '../models';
-import {ResultadoConvocatoriaRepository} from './resultado-convocatoria.repository';
-import {ApoyoSocioeconomicoRepository} from './apoyo-socioeconomico.repository';
+import {Convocatoria, ConvocatoriaRelations, Apoyo} from '../models';
+import {ApoyoRepository} from './apoyo.repository';
 
 export class ConvocatoriaRepository extends DefaultCrudRepository<
   Convocatoria,
@@ -11,20 +10,13 @@ export class ConvocatoriaRepository extends DefaultCrudRepository<
   ConvocatoriaRelations
 > {
 
-  public readonly apoyoSocioeconomicos: HasManyThroughRepositoryFactory<ApoyoSocioeconomico, typeof ApoyoSocioeconomico.prototype.id,
-          ResultadoConvocatoria,
-          typeof Convocatoria.prototype.id
-        >;
-
-  public readonly apoyoSocioeconomico: BelongsToAccessor<ApoyoSocioeconomico, typeof Convocatoria.prototype.id>;
+  public readonly apoyo: BelongsToAccessor<Apoyo, typeof Convocatoria.prototype.id>;
 
   constructor(
-    @inject('datasources.mysql') dataSource: MysqlDataSource, @repository.getter('ResultadoConvocatoriaRepository') protected resultadoConvocatoriaRepositoryGetter: Getter<ResultadoConvocatoriaRepository>, @repository.getter('ApoyoSocioeconomicoRepository') protected apoyoSocioeconomicoRepositoryGetter: Getter<ApoyoSocioeconomicoRepository>,
+    @inject('datasources.mysql') dataSource: MysqlDataSource, @repository.getter('ApoyoRepository') protected apoyoRepositoryGetter: Getter<ApoyoRepository>,
   ) {
     super(Convocatoria, dataSource);
-    this.apoyoSocioeconomico = this.createBelongsToAccessorFor('apoyoSocioeconomico', apoyoSocioeconomicoRepositoryGetter,);
-    this.registerInclusionResolver('apoyoSocioeconomico', this.apoyoSocioeconomico.inclusionResolver);
-    this.apoyoSocioeconomicos = this.createHasManyThroughRepositoryFactoryFor('apoyoSocioeconomicos', apoyoSocioeconomicoRepositoryGetter, resultadoConvocatoriaRepositoryGetter,);
-    this.registerInclusionResolver('apoyoSocioeconomicos', this.apoyoSocioeconomicos.inclusionResolver);
+    this.apoyo = this.createBelongsToAccessorFor('apoyo', apoyoRepositoryGetter,);
+    this.registerInclusionResolver('apoyo', this.apoyo.inclusionResolver);
   }
 }
