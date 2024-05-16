@@ -22,7 +22,7 @@ export class ProcesoConvocatoria extends Entity {
     type: 'number',
     required: true,
   })
-  año: number;
+  ano: number;
 
   @property({
     type: 'number',

@@ -21,7 +21,7 @@ export class ApoyoSocioeconomico extends Entity {
     type: 'Date',
     required: true,
   })
-  año: Date;
+  ano: Date;
 
   @property({
     type: 'number',
