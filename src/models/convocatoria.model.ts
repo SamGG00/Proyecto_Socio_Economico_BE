@@ -38,13 +38,13 @@ export class Convocatoria extends Entity {
     type: 'date',
     required: true,
   })
-  inicio: string;
+  inicio: Date;
 
   @property({
     type: 'date',
     required: true,
   })
-  fin: string;
+  fin: Date;
 
   @belongsTo(() => Apoyo)
   apoyoId: number;
