@@ -14,22 +14,22 @@ export class Programa extends Entity {
     type: 'string',
     required: true,
   })
-  nombre: string;
+  Nombre: string;
   @property({
     type: 'string',
     required: true,
   })
-  codigoSnies: string;
+  Codigo_SNIES: string;
 
   @property({
     type: 'number',
     required: true,
   })
-  duracion: number;
+  Duracion_Semestres: number;
 
 
   @belongsTo(() => Facultad)
-  facultadId: number;
+  Id_Facultad: number;
 
   constructor(data?: Partial<Programa>) {
     super(data);

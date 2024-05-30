@@ -1,4 +1,4 @@
-import {Entity, model, property, belongsTo} from '@loopback/repository';
+import {Entity, belongsTo, model, property} from '@loopback/repository';
 import {Apoyo} from './apoyo.model';
 
 @model()
@@ -14,40 +14,40 @@ export class Convocatoria extends Entity {
     type: 'number',
     required: true,
   })
-  ano: number;
+  Ano: number;
 
   @property({
     type: 'number',
     required: true,
   })
-  semestre: number;
+  Semestre: number;
 
   @property({
     type: 'number',
     required: true,
   })
-  cantidadestudiantes: number;
+  Total_Estudiantes_Presentados: number;
 
   @property({
     type: 'string',
     required: true,
   })
-  autor: string;
+  Autor: string;
 
   @property({
     type: 'date',
     required: true,
   })
-  inicio: Date;
+  Fecha_Inicio: Date;
 
   @property({
     type: 'date',
     required: true,
   })
-  fin: Date;
+  Fecha_Fin: Date;
 
   @belongsTo(() => Apoyo)
-  apoyoId: number;
+  Id_Apoyo_Socio_Economico: number;
 
   constructor(data?: Partial<Convocatoria>) {
     super(data);

@@ -1,6 +1,7 @@
-import {Entity, model, property, belongsTo} from '@loopback/repository';
-import {Municipio} from './municipio.model';
+import {Entity, belongsTo, model, property} from '@loopback/repository';
 import {Contacto} from './contacto.model';
+import {Municipio} from './municipio.model';
+import {Programa} from './programa.model';
 
 @model()
 export class Estudiante extends Entity {
@@ -10,106 +11,143 @@ export class Estudiante extends Entity {
     generated: false,
     required: true,
   })
-  codigoestudiante: string;
+  Codigo_Estudiante: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  nombre: string;
+  Nombre: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  genero: string;
+  Genero: string;
 
   @property({
     type: 'number',
     required: true,
   })
-  edad: number;
+  Edad: number;
 
   @property({
     type: 'string',
     required: true,
   })
-  numeroidentificacion: string;
+  Tipo_Identificacion: string;
+  @property({
+    type: 'string',
+    required: true,
+  })
+  Numero_De_Identificacion: string;
 
   @property({
     type: 'number',
     required: true,
   })
-  pbm: number;
+  PBM: number;
 
   @property({
     type: 'string',
     required: true,
   })
-  correo: string;
+  Correo: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  celular: string;
+  Celular: string;
 
   @property({
     type: 'number',
     required: true,
   })
-  estrato: number;
+  Estrato: number;
 
   @property({
     type: 'number',
     required: true,
   })
-  promedionotasactual: number;
+  Promedio_Notas: number;
 
   @property({
     type: 'number',
     required: true,
   })
-  puntajeapoyos: number;
+  Puntaje_De_Apoyos: number;
 
   @property({
     type: 'string',
     required: true,
   })
-  estado: string;
+  Estado: string;
 
   @property({
-    type: 'number',
+    type: 'string',
     required: true,
   })
-  ultimosemestrecursado: number;
+  Ultimo_Semestre_Cursado: string;
+
+  @property({
+    type: 'boolean',
+    required: true,
+  }) Hijos: boolean;
+
+
+  @property({
+    type: 'string',
+    required: true,
+  })
+  Autor: string;
 
   @property({
     type: 'boolean',
     required: true,
   })
-  hijos: boolean;
-
+  Retiros_Bajo_Rendimiento: boolean;
   @property({
     type: 'boolean',
     required: true,
   })
-  sancionesdisciplinarias: boolean;
+  Sanciones_Disciplinarias: boolean;
+  @property({
+    type: 'boolean',
+    required: true,
+  })
+  Aspirante_Especial: boolean;
 
   @property({
     type: 'string',
     required: true,
   })
-  autor: string;
+  Semestre_Bajo_Rendimiento: string;
+  @property({
+    type: 'string',
+    required: true,
+  })
+  Semestre_Sancion: string;
+  @property({
+    type: 'string',
+    required: true,
+  })
+  Tipo_De_Aspirante: string;
+
+
+
 
   @belongsTo(() => Municipio, {name: 'municipionacimiento'})
-  idmunicipionacimiento: number;
+  Id_Municipio_Nacimiento: number;
 
   @belongsTo(() => Municipio, {name: 'municipiovivienda'})
-  idmunicipiovivienda: number;
+  Id_Municipio_Vivienda: number;
 
   @belongsTo(() => Contacto)
-  contactoId: number;
+  Id_Contacto: number;
+
+  @belongsTo(() => Programa, {name: 'programa'})
+  Id_Programa_Academico: number;
 
   constructor(data?: Partial<Estudiante>) {
     super(data);

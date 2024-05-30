@@ -15,39 +15,34 @@ export class ApoyoSocioeconomico extends Entity {
     type: 'number',
     required: true,
   })
-  semestre: number;
+  Semestre: number;
 
   @property({
     type: 'Date',
     required: true,
   })
-  ano: Date;
+  Ano: number;
 
   @property({
     type: 'number',
     required: true,
   })
-  cantidadEstudiantesTotalAdmitidos: number;
+  Estudiantes_Aprobados: number;
 
   @property({
     type: 'string',
     required: true,
   })
-  lugarApoyo: string;
+  Sede_Apoyo: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  apoyo: string;
-  @property({
-    type: 'string',
-    required: true,
-  })
-  autor: string;
+  Autor: string;
 
   @belongsTo(() => Apoyo)
-  apoyoId: number;
+  Id_Apoyo: number;
 
   constructor(data?: Partial<ApoyoSocioeconomico>) {
     super(data);

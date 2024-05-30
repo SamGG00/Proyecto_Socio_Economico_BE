@@ -13,17 +13,17 @@ export class Organizacion extends Entity {
     type: 'string',
     required: true,
   })
-  nombre: string;
+  Nombre: string;
 
   @property({
     type: 'string',
   })
-  correo?: string;
+  Correo?: string;
 
   @property({
     type: 'string',
   })
-  celular?: string;
+  Celular?: string;
 
 
   constructor(data?: Partial<Organizacion>) {

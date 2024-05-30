@@ -13,31 +13,31 @@ export class Contacto extends Entity {
     type: 'string',
     required: true,
   })
-  nombre: string;
+  Nombre: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  parentesco: string;
+  Parentesco: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  celular: string;
+  Celular: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  procedencia: string;
+  Procedencia: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  correo: string;
+  Correo: string;
 
 
   constructor(data?: Partial<Contacto>) {

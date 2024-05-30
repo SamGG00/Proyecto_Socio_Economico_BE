@@ -13,7 +13,7 @@ export class Facultad extends Entity {
     type: 'string',
     required: true,
   })
-  nombre: string;
+  Nombre: string;
 
 
   constructor(data?: Partial<Facultad>) {

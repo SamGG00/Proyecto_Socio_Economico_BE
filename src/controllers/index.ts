@@ -11,3 +11,4 @@ export * from './apoyo.controller';
 export * from './apoyosocioeconomico.controller';
 export * from './procesoconvocatoria.controller';
 export * from './convocatoria.controller';
+export * from './estudiante-programa.controller';
