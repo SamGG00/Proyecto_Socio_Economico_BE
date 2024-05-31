@@ -20,13 +20,13 @@ import {
 import {ProcesoConvocatoria} from '../models';
 import {ProcesoConvocatoriaRepository} from '../repositories';
 
-export class ProcesoconvocatoriaController {
+export class ProcesoConvocatoriaController {
   constructor(
     @repository(ProcesoConvocatoriaRepository)
     public procesoConvocatoriaRepository : ProcesoConvocatoriaRepository,
   ) {}
 
-  @post('/procesos-convocatorias')
+  @post('/proceso-convocatorias')
   @response(200, {
     description: 'ProcesoConvocatoria model instance',
     content: {'application/json': {schema: getModelSchemaRef(ProcesoConvocatoria)}},
@@ -47,7 +47,7 @@ export class ProcesoconvocatoriaController {
     return this.procesoConvocatoriaRepository.create(procesoConvocatoria);
   }
 
-  @get('/procesos-convocatorias/count')
+  @get('/proceso-convocatorias/count')
   @response(200, {
     description: 'ProcesoConvocatoria model count',
     content: {'application/json': {schema: CountSchema}},
@@ -58,7 +58,7 @@ export class ProcesoconvocatoriaController {
     return this.procesoConvocatoriaRepository.count(where);
   }
 
-  @get('/procesos-convocatorias')
+  @get('/proceso-convocatorias')
   @response(200, {
     description: 'Array of ProcesoConvocatoria model instances',
     content: {
@@ -76,7 +76,7 @@ export class ProcesoconvocatoriaController {
     return this.procesoConvocatoriaRepository.find(filter);
   }
 
-  @patch('/procesos-convocatorias')
+  @patch('/proceso-convocatorias')
   @response(200, {
     description: 'ProcesoConvocatoria PATCH success count',
     content: {'application/json': {schema: CountSchema}},
@@ -95,7 +95,7 @@ export class ProcesoconvocatoriaController {
     return this.procesoConvocatoriaRepository.updateAll(procesoConvocatoria, where);
   }
 
-  @get('/procesos-convocatorias/{id}')
+  @get('/proceso-convocatorias/{id}')
   @response(200, {
     description: 'ProcesoConvocatoria model instance',
     content: {
@@ -111,7 +111,7 @@ export class ProcesoconvocatoriaController {
     return this.procesoConvocatoriaRepository.findById(id, filter);
   }
 
-  @patch('/procesos-convocatorias/{id}')
+  @patch('/proceso-convocatorias/{id}')
   @response(204, {
     description: 'ProcesoConvocatoria PATCH success',
   })
@@ -129,7 +129,7 @@ export class ProcesoconvocatoriaController {
     await this.procesoConvocatoriaRepository.updateById(id, procesoConvocatoria);
   }
 
-  @put('/procesos-convocatorias/{id}')
+  @put('/proceso-convocatorias/{id}')
   @response(204, {
     description: 'ProcesoConvocatoria PUT success',
   })
@@ -140,7 +140,7 @@ export class ProcesoconvocatoriaController {
     await this.procesoConvocatoriaRepository.replaceById(id, procesoConvocatoria);
   }
 
-  @del('/procesos-convocatorias/{id}')
+  @del('/proceso-convocatorias/{id}')
   @response(204, {
     description: 'ProcesoConvocatoria DELETE success',
   })

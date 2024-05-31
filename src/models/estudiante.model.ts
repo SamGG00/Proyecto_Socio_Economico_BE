@@ -1,6 +1,6 @@
-import {Entity, belongsTo, model, property} from '@loopback/repository';
-import {Contacto} from './contacto.model';
+import {Entity, model, property, belongsTo} from '@loopback/repository';
 import {Municipio} from './municipio.model';
+import {Contacto} from './contacto.model';
 import {Programa} from './programa.model';
 
 @model()
@@ -134,19 +134,16 @@ export class Estudiante extends Entity {
   })
   Tipo_De_Aspirante: string;
 
-
-
-
-  @belongsTo(() => Municipio, {name: 'municipionacimiento'})
+  @belongsTo(() => Municipio, {name: 'Municipio_Nacimiento'})
   Id_Municipio_Nacimiento: number;
 
-  @belongsTo(() => Municipio, {name: 'municipiovivienda'})
+  @belongsTo(() => Municipio, {name: 'Municipio_Vivienda'})
   Id_Municipio_Vivienda: number;
 
-  @belongsTo(() => Contacto)
+  @belongsTo(() => Contacto, {name: 'Contacto'})
   Id_Contacto: number;
 
-  @belongsTo(() => Programa, {name: 'programa'})
+  @belongsTo(() => Programa, {name: 'Programa_Academico'})
   Id_Programa_Academico: number;
 
   constructor(data?: Partial<Estudiante>) {

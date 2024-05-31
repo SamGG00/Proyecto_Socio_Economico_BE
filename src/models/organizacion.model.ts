@@ -7,7 +7,7 @@ export class Organizacion extends Entity {
     id: true,
     generated: true,
   })
-  id?: number;
+  id: number;
 
   @property({
     type: 'string',
@@ -18,12 +18,12 @@ export class Organizacion extends Entity {
   @property({
     type: 'string',
   })
-  Correo?: string;
+  Correo: string;
 
   @property({
     type: 'string',
   })
-  Celular?: string;
+  Celular: string;
 
 
   constructor(data?: Partial<Organizacion>) {
