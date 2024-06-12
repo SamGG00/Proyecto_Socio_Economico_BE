@@ -9,3 +9,5 @@ export * from './municipio.repository';
 export * from './organizacion.repository';
 export * from './proceso-convocatoria.repository';
 export * from './programa.repository';
+export * from './tablacentral.repository';
+

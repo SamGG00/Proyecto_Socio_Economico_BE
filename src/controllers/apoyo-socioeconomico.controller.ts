@@ -20,7 +20,7 @@ import {
 import {ApoyoSocioeconomico} from '../models';
 import {ApoyoSocioeconomicoRepository} from '../repositories';
 
-export class ApoyoSocioEconomicoController {
+export class ApoyoSocioeconomicoController {
   constructor(
     @repository(ApoyoSocioeconomicoRepository)
     public apoyoSocioeconomicoRepository : ApoyoSocioeconomicoRepository,
