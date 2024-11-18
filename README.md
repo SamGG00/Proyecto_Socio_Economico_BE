@@ -1,1 +1,0 @@
-# Proyecto_Socio_Economico_BE
